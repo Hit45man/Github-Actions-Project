@@ -30,6 +30,11 @@ jobs:
           echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
           sudo apt-get update
           sudo apt-get install trivy
+    - name: Trivy FS scan
+      run: trivy fs --format table -o fs-report.json
+    - name: Gitleasks Installation
+      run: sudo apt install gitleaks -y 
+    
       
     
 
