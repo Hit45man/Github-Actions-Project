@@ -6,10 +6,10 @@ RUN ls
 
 ENV APP_HOME /usr/src/app
 
-COPY *.jar $APP_HOME/app.jar
+COPY target/*.jar $APP_HOME/app.jar
 
 WORKDIR $APP_HOME
 
 RUN ls -la $APP_HOME
 
-CMD ["java", "-jar", "/usr/src/app/app.jar"]
+CMD ["java", "-jar", "app.jar"]
