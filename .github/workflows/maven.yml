@@ -64,7 +64,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: app-jar
-        path: target/*.jar
+        path: app/*.jar
     - uses: actions/checkout@v4
       with:
         # Disabling shallow clones is recommended for improving the relevancy of reporting
