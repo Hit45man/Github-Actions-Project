@@ -1,5 +1,5 @@
 
-name: Java CI with Maven
+name: Rohit CICD
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   Compile:
-    runs-on: ubuntu-latest
+    runs-on: rohit-hosted
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -19,7 +19,7 @@ jobs:
     - name: Buid and Compile
       run: mvn compile
   Security_Check:
-    runs-on: ubuntu-latest
+    runs-on: rohit-hosted
     needs: Compile
     steps:
     - uses: actions/checkout@v4
@@ -35,7 +35,7 @@ jobs:
     - name: Gitleasks Installation
       run: sudo apt install gitleaks -y
   Test:
-    runs-on: ubuntu-latest
+    runs-on: rohit-hosted
     needs: Security_Check
     steps:
     - uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
     - name: Maven Test
       run: mvn test
   Build_and_sonar_scan:
-    runs-on: ubuntu-latest
+    runs-on: rohit-hosted
     needs: Test
     steps:
     - uses: actions/checkout@v4
@@ -83,7 +83,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
   Docker_build_and_Push :
-    runs-on: ubuntu-latest
+    runs-on: rohit-hosted
     needs: Build_and_sonar_scan
     steps:
     - uses: actions/checkout@v4
@@ -107,7 +107,7 @@ jobs:
         push: true
         tags: rohikam/bank-app:latest
   Deploy_to_k8s:
-    runs-on: ubuntu-latest
+    runs-on: rohit-hosted
     needs: Docker_build_and_Push
     steps:
     - name: Checkout Code
