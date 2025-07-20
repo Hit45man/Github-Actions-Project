@@ -1,5 +1,5 @@
 
-name: Rohit CICD
+name: Rohit-CICD
 
 on:
   push:
