@@ -10,4 +10,6 @@ COPY *.jar $APP_HOME/app.jar
 
 WORKDIR $APP_HOME
 
-CMD ["java", "-jar", "$APP_HOME/app.jar"]
+RUN ls -la $APP_HOME
+
+CMD ["java", "-jar", "/usr/src/app/app.jar"]
