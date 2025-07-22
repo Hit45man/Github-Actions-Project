@@ -92,8 +92,8 @@ jobs:
       with:
         name: app-jar
         path: app  # this will download JAR to ./app folder
-    - name: Move jar to root
-      run : mv app/*.jar .
+    - name: Rename jar file 
+      run : mv app/*.jar  app.jar
     - name: Login to Docker Hub
       uses: docker/login-action@v3
       with:
