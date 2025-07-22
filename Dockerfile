@@ -8,8 +8,6 @@ ENV APP_HOME /usr/src/app
 
 COPY *.jar $APP_HOME/app.jar
 
-COPY *.zip $APP_HOME/app.jar
-
 WORKDIR $APP_HOME
 
 RUN ls -la $APP_HOME
